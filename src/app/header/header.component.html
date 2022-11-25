@@ -5,36 +5,54 @@
     </h2>
   </div>
 
-  <div class="back-route">
-    <a class="back-routing" href="#"
-      ><i class="fas fa-chevron-left"></i> Back to Products
-    </a>
-    <a class="back-routing" href="#"
-      ><i class="fas fa-chevron-left"></i> Back to Gallery
-    </a>
-  </div>
-
-  <div class="header-item d-none">
-    <app-header-item></app-header-item>
-  </div>
-
-  <div class="sign-in-btn d-none">
-    <button class="btn btn-outline-primary px-4" type="button">Sign In</button>
-  </div>
-
-  <div class="log-name">
-    <h6 class="m-0">Welcome <strong class="text-primary">Noman</strong></h6>
-    <div class="log-out">
-      <button class="btn">
-        <i class="fas fa-unlock-alt"></i>
-        <span>logout</span>
-      </button>
+  <ng-container *ngIf="goBack">
+    <div class="back-route">
+      <a class="back-routing" href="#"
+        ><i class="fas fa-chevron-left"></i> Back to Products
+      </a>
+      <a class="back-routing" href="#"
+        ><i class="fas fa-chevron-left"></i> Back to Gallery
+      </a>
     </div>
-  </div>
-  <div class="em-ph">
-    <h6 class="m-0">
+  </ng-container>
+
+  <ng-container *ngIf="headerNav">
+    <div class="header-item">
+      <app-header-item></app-header-item>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="headerLogin">
+    <ng-container *ngIf="!headerLogInBack">
+      <div class="sign-in-btn">
+        <button class="btn btn-outline-primary px-4" type="button">
+          Sign In
+        </button>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="headerLogInBack">
+      <div class="log-name">
+        <h6 class="m-0">Welcome <strong class="text-primary">Noman</strong></h6>
+        <div class="log-out">
+          <button class="btn">
+            <i class="fas fa-unlock-alt"></i>
+            <span>logout</span>
+          </button>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <div class="em-ph" *ngIf="headerContactDetails">
+    <h6>
       <i class="fas fa-envelope text-primary"></i>
       <span>abcdef@gmail.com</span>
+    </h6>
+    <h6 class="m-0">
+      <!-- <i class="fas fa-phone-alt"></i> -->
+      <span [style]="dataStyle">Ph</span>
+      <span>(000) 01234567891</span>
     </h6>
   </div>
 </div>
