@@ -1,22 +1,20 @@
-<div class="container p-4 border border-bottom-0 d-flex justify-content-between align-items-center">
+<div
+  class="container p-4 border border-bottom-0 d-flex justify-content-between align-items-center"
+>
   <div class="logo">
     <h2 class="m-0">
       <a href="#">{{ "Logo" | uppercase }}</a>
     </h2>
+    <ng-container *ngIf="goBack.text">
+      <div class="back-route">
+        <a class="back-routing" href="#" routerLink="./{{ goBack.router }}"
+          ><i class="fas fa-chevron-left"></i> {{ goBack.text }}
+        </a>
+      </div>
+    </ng-container>
   </div>
 
-  <ng-container *ngIf="goBack">
-    <div class="back-route">
-      <a class="back-routing" href="#"
-        ><i class="fas fa-chevron-left"></i> Back to Products
-      </a>
-      <a class="back-routing" href="#"
-        ><i class="fas fa-chevron-left"></i> Back to Gallery
-      </a>
-    </div>
-  </ng-container>
-
-  <ng-container *ngIf="headerNav">
+  <ng-container *ngIf="!goBack.text">
     <div class="header-item">
       <app-header-item></app-header-item>
     </div>
@@ -25,7 +23,7 @@
   <ng-container *ngIf="headerLogin">
     <ng-container *ngIf="!headerLogInBack">
       <div class="sign-in-btn">
-        <button class="btn btn-outline-primary px-4" type="button">
+        <button class="btn btn-outline-primary px-4" type="button" (click)="signInData()">
           Sign In
         </button>
       </div>
@@ -33,9 +31,11 @@
 
     <ng-container *ngIf="headerLogInBack">
       <div class="log-name">
-        <h6 class="m-0">Welcome <strong class="text-primary">Noman</strong></h6>
+        <h6 class="m-0">
+          Welcome <strong class="text-primary">{{ headerLogInBack }}</strong>
+        </h6>
         <div class="log-out">
-          <button class="btn">
+          <button class="btn" (click)="onLogOut()">
             <i class="fas fa-unlock-alt"></i>
             <span>logout</span>
           </button>

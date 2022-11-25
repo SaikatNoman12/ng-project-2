@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { HeaderServiceService } from './../../appService/header-service.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-laptop',
   templateUrl: './laptop.component.html',
   styleUrls: ['./laptop.component.scss']
 })
-export class LaptopComponent implements OnInit {
+export class LaptopComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  constructor(private _sub: HeaderServiceService) { }
 
   ngOnInit(): void {
+    this._sub.goBack.next({ text: 'Back To Products', router: 'products' });
+  }
+
+  ngOnDestroy(): void {
+    this._sub.goBack.next({ text: '', router: '' });
   }
 
 }

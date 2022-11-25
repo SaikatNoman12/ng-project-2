@@ -1,4 +1,7 @@
-
+.logo {
+  display: flex;
+  align-items: center;
+}
 
 a {
   text-decoration: none;
@@ -10,6 +13,7 @@ h2 a {
 .back-route {
   display: flex;
   align-items: center;
+  margin-left: 20px;
 }
 
 .back-route .back-routing {
