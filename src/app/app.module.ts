@@ -1,3 +1,4 @@
+import { GalleryItemData } from './galleryModal/gallery';
 import { ImageThreeComponent } from './gallery/image-three/image-three.component';
 import { ImageTwoComponent } from './gallery/image-two/image-two.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -22,33 +23,7 @@ import { TvComponent } from './products/tv/tv.component';
 import { ImageOneComponent } from './gallery/image-one/image-one.component';
 import { ImageFourComponent } from './gallery/image-four/image-four.component';
 import { LoginComponent } from './login/login.component';
-
-const router: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'login' },
-  { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'about', component: AboutUsComponent },
-  {
-    path: 'gallery', children: [
-      { path: '', component: GalleryComponent },
-      { path: 'image-1', component: ImageOneComponent },
-      { path: 'image-2', component: ImageTwoComponent },
-      { path: 'image-3', component: ImageThreeComponent },
-      { path: 'image-4', component: ImageFourComponent },
-    ]
-  },
-  {
-    path: 'products', children: [
-      { path: '', component: ProductsComponent },
-      { path: 'laptop', component: LaptopComponent },
-      { path: 'mobile', component: MobileComponent },
-      { path: 'washing-machine', component: WashingMachineComponent },
-      { path: 'tv', component: TvComponent },
-    ]
-  },
-  { path: 'contact', component: ContactUsComponent },
-  { path: '**', component: ErrorComponent }
-]
+import { GalleryItemComponent } from './gallery-item/gallery-item.component';
 
 @NgModule({
   declarations: [
@@ -66,15 +41,19 @@ const router: Routes = [
     WashingMachineComponent,
     TvComponent,
     ImageOneComponent,
+    ImageTwoComponent,
+    ImageThreeComponent,
+    ImageFourComponent,
     LoginComponent,
+    GalleryItemComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(router)
   ],
   providers: [
-    HeaderServiceService
+    HeaderServiceService,
+    GalleryItemData
   ],
   bootstrap: [AppComponent]
 })
