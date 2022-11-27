@@ -19,4 +19,6 @@ export class HeaderServiceService {
 
   headerLogin:any = new BehaviorSubject<any>(true);
 
+  headerShow:any = new BehaviorSubject<any>(false);
+
 }

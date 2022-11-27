@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
     else if (pass.value === 'admin') {
       this._sub.headerLogInBack.next(uName.value);
+      this._sub.headerShow.next(true);
       this.router.navigate(['home']);
     }
     else {

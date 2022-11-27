@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   headerContactDetails: any;
   signIn: any;
 
+  headerShow: any;
   constructor(
     private _sub: HeaderServiceService,
     private singleRoute: Router
@@ -45,7 +46,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     _sub.headerLogin.subscribe((headerLog: any) => {
       this.headerLogin = headerLog;
-    })
+    });
+
+    _sub.headerShow.subscribe((showData: any) => {
+      this.headerShow = showData;
+    });
 
   }
 
@@ -55,6 +60,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   onLogOut() {
     this.headerLogInBack = '';
     this.singleRoute.navigate(['./login']);
+    this._sub.headerShow.next(false);
   }
 
   signInData(): void {
