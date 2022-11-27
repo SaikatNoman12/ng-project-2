@@ -1,3 +1,4 @@
+import { ProductsItem } from './galleryModal/products';
 import { GalleryItemData } from './galleryModal/gallery';
 import { ImageThreeComponent } from './gallery/image-three/image-three.component';
 import { ImageTwoComponent } from './gallery/image-two/image-two.component';
@@ -24,6 +25,7 @@ import { ImageOneComponent } from './gallery/image-one/image-one.component';
 import { ImageFourComponent } from './gallery/image-four/image-four.component';
 import { LoginComponent } from './login/login.component';
 import { GalleryItemComponent } from './gallery-item/gallery-item.component';
+import { ProductsItemComponent } from './products-item/products-item.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { GalleryItemComponent } from './gallery-item/gallery-item.component';
     ImageFourComponent,
     LoginComponent,
     GalleryItemComponent,
+    ProductsItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ import { GalleryItemComponent } from './gallery-item/gallery-item.component';
   ],
   providers: [
     HeaderServiceService,
-    GalleryItemData
+    GalleryItemData,
+    ProductsItem
   ],
   bootstrap: [AppComponent]
 })

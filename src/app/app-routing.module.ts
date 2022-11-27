@@ -1,3 +1,4 @@
+import { ProductsItemComponent } from './products-item/products-item.component';
 import { GalleryItemComponent } from './gallery-item/gallery-item.component';
 import { ErrorComponent } from './error/error.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
@@ -41,8 +42,9 @@ const routes: Routes = [
   //   ]
   // },
   { path: 'gallery', component: GalleryComponent },
-  {path:'gallery/:id', component:GalleryItemComponent},
+  { path: 'gallery/:id', component: GalleryItemComponent },
   { path: 'products', component: ProductsComponent },
+  { path: 'products/:productId', component: ProductsItemComponent },
   { path: 'contact', component: ContactUsComponent },
   { path: '**', component: ErrorComponent }
 ]
