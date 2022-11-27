@@ -55,6 +55,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+
   }
 
   onLogOut() {
@@ -65,6 +66,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   signInData(): void {
     this.singleRoute.navigate(['login']);
+    this._sub.headerShow.next(false);
   }
 
   ngOnDestroy(): void {

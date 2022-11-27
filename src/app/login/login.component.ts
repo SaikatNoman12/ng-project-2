@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     if ((uName.value === '' || uName.value.trim() === '') && (pass.value === '' || pass.value.trim() === '') && !checkData.checked) {
       alert('Please fill all data!');
+      
     }
     else if (uName.value === '' || uName.value.trim() === '') {
       alert('Please fill your user name!');
@@ -48,6 +49,5 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-
   }
 }

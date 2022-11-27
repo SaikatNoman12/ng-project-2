@@ -1,3 +1,4 @@
+import { HeaderServiceService } from './../appService/header-service.service';
 import { Component, OnInit } from '@angular/core';
 import { GalleryItemData } from '../galleryModal/gallery';
 
@@ -9,7 +10,8 @@ import { GalleryItemData } from '../galleryModal/gallery';
 export class GalleryComponent implements OnInit {
 
   constructor(
-    private _gallery:GalleryItemData
+    private _gallery:GalleryItemData,
+    private _sub:HeaderServiceService
   ) { }
 
   getItem:any;
@@ -18,6 +20,7 @@ export class GalleryComponent implements OnInit {
   ngOnInit(): void {
 
     this.products = this._gallery.products;
+    this._sub.headerShow.next(true);
 
   }
 

@@ -23,6 +23,7 @@ export class GalleryItemComponent implements OnInit {
 
   ngOnInit(): void {
     this._sub.goBack.next({ text: 'Go Back Gallery', router: 'gallery' });
+    this._sub.headerShow.next(true);
     
     this.getRoute = this.activeRoute.params.subscribe((params: Params) => {
       this.getId = params['id'];

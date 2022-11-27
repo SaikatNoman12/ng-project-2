@@ -22,6 +22,7 @@ export class ProductsItemComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     this._surv.goBack.next({ text: 'Go to Products', router: 'products' });
+    this._surv.headerShow.next(true);
 
     this.activeRoute.params.subscribe((proId: Params) => {
       this.productId = proId['productId'];

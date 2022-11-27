@@ -16,6 +16,7 @@ export class ContactUsComponent implements OnInit, OnDestroy {
     this._sub.contact.next(true);
     this._sub.signIn.next(false);
     this._sub.headerLogin.next(false);
+    this._sub.headerShow.next(true);
   }
 
 
